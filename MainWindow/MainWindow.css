@@ -168,27 +168,6 @@ nav a:hover::after {
   padding: 2rem;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.gallery-item {
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.gallery-item img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-
 video {
   max-width: 100%;
   border-radius: 10px;

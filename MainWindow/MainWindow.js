@@ -1,19 +1,15 @@
-// Handle wheel scrolling
+// Handle wheel scrolling with improved accuracy for three sections
 document.addEventListener('wheel', function(e) {
     e.preventDefault();
     const direction = e.deltaY > 0 ? 1 : -1;
     const sections = document.querySelectorAll('.section');
-    const currentSection = Array.from(sections).find(section => {
-        const rect = section.getBoundingClientRect();
-        return rect.top >= -100 && rect.top <= 100;
-    });
+    const viewportHeight = window.innerHeight;
+    const currentScroll = window.scrollY;
+    const currentSectionIndex = Math.round(currentScroll / viewportHeight);
     
-    if (currentSection) {
-        const currentIndex = Array.from(sections).indexOf(currentSection);
-        const nextIndex = currentIndex + direction;
-        if (nextIndex >= 0 && nextIndex < sections.length) {
-            sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
-        }
+    const nextIndex = currentSectionIndex + direction;
+    if (nextIndex >= 0 && nextIndex < sections.length) {
+        sections[nextIndex].scrollIntoView({ behavior: 'smooth' });
     }
 }, { passive: false });
 
