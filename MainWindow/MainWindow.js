@@ -15,19 +15,44 @@ document.addEventListener('wheel', function(e) {
     const viewportHeight = window.innerHeight;
     const currentScroll = window.scrollY;
     const currentSectionIndex = Math.round(currentScroll / viewportHeight);
-    
-    const nextIndex = currentSectionIndex + direction;
+      const nextIndex = currentSectionIndex + direction;
     if (nextIndex >= 0 && nextIndex < sections.length) {
-        window.scrollTo({
-            top: nextIndex * viewportHeight,
-            behavior: 'smooth'
-        });
-    }
-    
-    // Add a delay before allowing next scroll
-    scrollTimeout = setTimeout(() => {
+        const targetPosition = nextIndex * viewportHeight;
+        const startPosition = currentScroll;
+        const distance = targetPosition - startPosition;
+        
+        // Smooth scroll animation
+        const duration = 1500; // Increased duration for smoother scroll
+        const startTime = performance.now();
+        
+        function animate(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smoother movement
+            const easeInOutCubic = progress => {
+                return progress < 0.5
+                    ? 4 * progress * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+            };
+            
+            const currentPosition = startPosition + distance * easeInOutCubic(progress);
+            window.scrollTo(0, currentPosition);
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                // Reset scroll lock after animation completes
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 200); // Short delay after animation
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    } else {
         isScrolling = false;
-    }, 1200); // Longer delay for smoother transitions
+    }
 }, { passive: false });
 
 // Handle navigation clicks
