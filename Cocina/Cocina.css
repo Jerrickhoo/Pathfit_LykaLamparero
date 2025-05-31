@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header and Navigation Styles */
+header {
+  background-color: rgba(255, 204, 224, 0.9);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(214, 51, 132, 0.2);
+  width: 100%;
+}
+
+header h1 {
+  color: #d63384;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+.home-link {
+  color: #d63384;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 230, 238, 0.9);
+}
+
+.home-link:hover {
+  background-color: #d63384;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);
+}
+
+/* Main Content Styles */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.recipe-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(214, 51, 132, 0.1);
+  padding: 2rem;
+}
+
+/* Video Section Styles */
+.video-section {
+  margin-bottom: 3rem;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(214, 51, 132, 0.1);
+}
+
+video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #d63384;
+  background: transparent;
+  color: #d63384;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover,
+.control-btn.active {
+  background-color: #d63384;
+  color: white;
+}
+
+/* Ingredients Section Styles */
+.ingredients-section {
+  margin-bottom: 3rem;
+}
+
+.ingredients-section h2 {
+  color: #d63384;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 230, 238, 0.3);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.ingredient-item:hover {
+  transform: translateY(-5px);
+}
+
+.ingredient-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #d63384;
+}
+
+/* Process Section Styles */
+.process-section {
+  margin-bottom: 3rem;
+}
+
+.process-section h2 {
+  color: #d63384;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step-item {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 230, 238, 0.3);
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+  transform: translateX(10px);
+}
+
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d63384;
+  min-width: 40px;
+}
+
+/* Final Plating Section Styles */
+.plating-section {
+  margin-bottom: 2rem;
+}
+
+.plating-section h2 {
+  color: #d63384;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.final-image-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.final-plating-image {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(214, 51, 132, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.plating-description {
+  padding: 1.5rem;
+  background-color: rgba(255, 230, 238, 0.3);
+  border-radius: 10px;
+}
+
+.plating-description h3 {
+  color: #d63384;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(255, 204, 224, 0.9);
+  color: #d63384;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .video-controls {
+    flex-wrap: wrap;
+  }
+  
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .step-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .step-number {
+    text-align: center;
+  }
+}
